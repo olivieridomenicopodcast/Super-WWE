@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WWE Fantasy League</title>
+  <meta name="description" content="Campionato di Wrestling stile calcistico italiano">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="icon" type="image/png" href="./icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- HEADER -->
+    <header id="main-header">
+      <div class="header-bg"></div>
+      <div class="header-content">
+        <div class="logo-area">
+          <div class="logo-belt">🏆</div>
+          <div class="logo-text">
+            <h1>WWE FANTASY LEAGUE</h1>
+            <span class="season-badge" id="season-label">STAGIONE 1</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="btn-icon" id="btn-backup" title="Backup">💾</button>
+          <button class="btn-icon" id="btn-restore" title="Ripristina">📂</button>
+          <button class="btn-icon btn-danger" id="btn-reset" title="Reset tutto">🗑️</button>
+        </div>
+      </div>
+      <!-- NAV TABS -->
+      <nav id="main-nav">
+        <button class="tab-btn active" data-tab="draft">DRAFT</button>
+        <button class="tab-btn" data-tab="serie-a-m">SERIE A ♂</button>
+        <button class="tab-btn" data-tab="serie-b-m">SERIE B ♂</button>
+        <button class="tab-btn" data-tab="serie-a-f">SERIE A ♀</button>
+        <button class="tab-btn" data-tab="coppa-m">COPPA ♂</button>
+        <button class="tab-btn" data-tab="coppa-f">COPPA ♀</button>
+        <button class="tab-btn" data-tab="champions">CHAMPIONS</button>
+        <button class="tab-btn" data-tab="roster">ROSTER</button>
+        <button class="tab-btn" data-tab="storico">STORICO</button>
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+
+      <!-- ===================== DRAFT TAB ===================== -->
+      <div class="tab-pane active" id="tab-draft">
+        <div class="section-hero">
+          <h2>⚡ DRAFT WRESTLERS</h2>
+          <p class="hero-sub" id="draft-subtitle">Smista i wrestler nelle leghe. Clicca il bottone per assegnare uno alla volta.</p>
+        </div>
+        <div id="draft-area">
+          <!-- dynamic content -->
+        </div>
+      </div>
+
+      <!-- ===================== SERIE A MASCHILE ===================== -->
+      <div class="tab-pane" id="tab-serie-a-m">
+        <div class="competition-header gold">
+          <h2>🏆 SERIE A MASCHILE</h2>
+          <p>World Heavyweight Championship</p>
+        </div>
+        <div class="comp-tabs">
+          <button class="comp-tab active" data-comp="sam" data-view="classifica">CLASSIFICA</button>
+          <button class="comp-tab" data-comp="sam" data-view="calendario">CALENDARIO</button>
+          <button class="comp-tab" data-comp="sam" data-view="giornata">GIORNATA</button>
+        </div>
+        <div class="comp-content" id="comp-sam"></div>
+      </div>
+
+      <!-- ===================== SERIE B MASCHILE ===================== -->
+      <div class="tab-pane" id="tab-serie-b-m">
+        <div class="competition-header silver">
+          <h2>🥈 SERIE B MASCHILE</h2>
+          <p>Promozione in Serie A</p>
+        </div>
+        <div class="comp-tabs">
+          <button class="comp-tab active" data-comp="sbm" data-view="classifica">CLASSIFICA</button>
+          <button class="comp-tab" data-comp="sbm" data-view="calendario">CALENDARIO</button>
+          <button class="comp-tab" data-comp="sbm" data-view="giornata">GIORNATA</button>
+        </div>
+        <div class="comp-content" id="comp-sbm"></div>
+      </div>
+
+      <!-- ===================== SERIE A FEMMINILE ===================== -->
+      <div class="tab-pane" id="tab-serie-a-f">
+        <div class="competition-header purple">
+          <h2>👑 SERIE A FEMMINILE</h2>
+          <p>World IC Woman Championship</p>
+        </div>
+        <div class="comp-tabs">
+          <button class="comp-tab active" data-comp="saf" data-view="classifica">CLASSIFICA</button>
+          <button class="comp-tab" data-comp="saf" data-view="calendario">CALENDARIO</button>
+          <button class="comp-tab" data-comp="saf" data-view="giornata">GIORNATA</button>
+        </div>
+        <div class="comp-content" id="comp-saf"></div>
+      </div>
+
+      <!-- ===================== COPPA MASCHILE ===================== -->
+      <div class="tab-pane" id="tab-coppa-m">
+        <div class="competition-header red">
+          <h2>🇺🇸 UNITED STATES CHAMPIONSHIP CUP</h2>
+          <p>Coppa Nazionale Maschile</p>
+        </div>
+        <div id="comp-coppa-m"></div>
+      </div>
+
+      <!-- ===================== COPPA FEMMINILE ===================== -->
+      <div class="tab-pane" id="tab-coppa-f">
+        <div class="competition-header pink">
+          <h2>💎 DIVAS CHAMPIONSHIP CUP</h2>
+          <p>Coppa Nazionale Femminile</p>
+        </div>
+        <div id="comp-coppa-f"></div>
+      </div>
+
+      <!-- ===================== CHAMPIONS LEAGUE ===================== -->
+      <div class="tab-pane" id="tab-champions">
+        <div class="competition-header champ">
+          <h2>⭐ WWE UNDISPUTED CHAMPIONS LEAGUE</h2>
+          <p>Undisputed WWE Championship</p>
+        </div>
+        <div id="comp-champions"></div>
+      </div>
+
+      <!-- ===================== ROSTER ===================== -->
+      <div class="tab-pane" id="tab-roster">
+        <div class="section-hero">
+          <h2>👥 ROSTER COMPLETO</h2>
+          <p class="hero-sub">Gestisci l'elenco dei wrestler</p>
+        </div>
+        <div id="roster-content"></div>
+      </div>
+
+      <!-- ===================== STORICO ===================== -->
+      <div class="tab-pane" id="tab-storico">
+        <div class="section-hero">
+          <h2>📜 ALBO D'ORO & STORICO</h2>
+          <p class="hero-sub">Classifica all-time, campioni e record</p>
+        </div>
+        <div id="storico-content"></div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- MODALS -->
+  <div id="modal-overlay" class="hidden">
+    <div id="modal-box">
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast"></div>
+
+  <!-- Hidden file input for restore -->
+  <input type="file" id="file-restore" accept=".json" style="display:none">
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,963 @@
+/* ===========================
+   WWE FANTASY LEAGUE — CSS
+   Dark/Gold/Red Epic Theme
+=========================== */
+
+:root {
+  --gold: #c9a227;
+  --gold-light: #f0c84a;
+  --gold-dark: #8a6d15;
+  --red: #cc0000;
+  --red-bright: #ff2222;
+  --bg-deepblack: #050505;
+  --bg-black: #0a0a0a;
+  --bg-dark: #111111;
+  --bg-card: #1a1a1a;
+  --bg-card2: #222222;
+  --text-white: #f0f0f0;
+  --text-muted: #888888;
+  --text-dim: #555555;
+  --purple: #9b59b6;
+  --silver: #aaaaaa;
+  --pink: #e91e8c;
+  --blue-champ: #0066cc;
+  --green: #27ae60;
+  --border: #2a2a2a;
+  --border-gold: #3a2e0a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg-deepblack);
+  color: var(--text-white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ======= HEADER ======= */
+#main-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-black);
+  border-bottom: 2px solid var(--gold);
+}
+
+.header-bg {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 60px,
+    rgba(201,162,39,0.03) 60px,
+    rgba(201,162,39,0.03) 61px
+  );
+  pointer-events: none;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-belt {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 8px var(--gold));
+}
+
+.logo-text h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.06em;
+  color: var(--gold-light);
+  text-shadow: 0 0 20px rgba(201,162,39,0.5);
+  line-height: 1;
+}
+
+.season-badge {
+  display: inline-block;
+  background: var(--red);
+  color: white;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-icon {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-white);
+  font-size: 1.1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.btn-icon:hover { border-color: var(--gold); background: var(--bg-card2); }
+.btn-icon.btn-danger:hover { border-color: var(--red); background: rgba(204,0,0,0.15); }
+
+/* ======= NAV TABS ======= */
+#main-nav {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-top: 1px solid var(--border);
+  padding: 0 10px;
+}
+#main-nav::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  padding: 10px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+.tab-btn:hover { color: var(--gold-light); }
+.tab-btn.active {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold);
+}
+
+/* ======= MAIN CONTENT ======= */
+#main-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 15px 60px;
+}
+
+/* ======= TAB PANES ======= */
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* ======= SECTION HERO ======= */
+.section-hero {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-gold);
+}
+.section-hero h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+}
+.hero-sub { color: var(--text-muted); margin-top: 4px; }
+
+/* ======= COMPETITION HEADER ======= */
+.competition-header {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border-left: 5px solid;
+  position: relative;
+  overflow: hidden;
+}
+.competition-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background: repeating-linear-gradient(45deg, white 0, white 1px, transparent 1px, transparent 20px);
+}
+.competition-header h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+.competition-header p {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  position: relative;
+}
+.competition-header.gold { background: rgba(201,162,39,0.1); border-color: var(--gold); }
+.competition-header.gold h2 { color: var(--gold-light); }
+.competition-header.silver { background: rgba(170,170,170,0.08); border-color: var(--silver); }
+.competition-header.silver h2 { color: var(--silver); }
+.competition-header.purple { background: rgba(155,89,182,0.1); border-color: var(--purple); }
+.competition-header.purple h2 { color: #c39bd3; }
+.competition-header.red { background: rgba(204,0,0,0.1); border-color: var(--red); }
+.competition-header.red h2 { color: #ff6666; }
+.competition-header.pink { background: rgba(233,30,140,0.1); border-color: var(--pink); }
+.competition-header.pink h2 { color: #f48fb1; }
+.competition-header.champ { background: rgba(0,102,204,0.1); border-color: var(--blue-champ); }
+.competition-header.champ h2 { color: #64b5f6; }
+
+/* ======= COMP SUBTABS ======= */
+.comp-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+  background: var(--bg-card);
+  padding: 4px;
+  border-radius: 6px;
+  width: fit-content;
+}
+.comp-tab {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.comp-tab:hover { color: var(--text-white); }
+.comp-tab.active { background: var(--gold); color: #000; }
+
+/* ======= STANDINGS TABLE ======= */
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+.standings-table th {
+  background: var(--bg-card2);
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-gold);
+}
+.standings-table th.right { text-align: right; }
+.standings-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+  transition: background 0.15s;
+}
+.standings-table tr:hover td { background: rgba(255,255,255,0.03); }
+.standings-table .pos-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  width: 36px;
+  color: var(--text-muted);
+}
+.standings-table .wrestler-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.standings-table .pts {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  color: var(--gold-light);
+  text-align: right;
+}
+.standings-table .num { text-align: right; color: var(--text-muted); }
+
+/* Zone indicators */
+.zone-champ { background: rgba(201,162,39,0.08) !important; }
+.zone-cup { background: rgba(0,102,204,0.05) !important; }
+.zone-promo { background: rgba(39,174,96,0.06) !important; }
+.zone-retro { background: rgba(204,0,0,0.07) !important; }
+.zone-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+}
+.zone-label.champ { background: var(--gold); color: #000; }
+.zone-label.cup { background: var(--blue-champ); color: #fff; }
+.zone-label.promo { background: var(--green); color: #fff; }
+.zone-label.retro { background: var(--red); color: #fff; }
+
+/* ======= MATCH CARD ======= */
+.match-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: border-color 0.2s;
+}
+.match-card:hover { border-color: var(--border-gold); }
+.match-card .wrestler-a,
+.match-card .wrestler-b {
+  flex: 1;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.match-card .wrestler-a { text-align: right; }
+.match-card .vs-badge {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: var(--red);
+  background: rgba(204,0,0,0.1);
+  border: 1px solid var(--red);
+  padding: 2px 10px;
+  border-radius: 3px;
+  min-width: 50px;
+  text-align: center;
+}
+.match-card.result .winner { color: var(--gold-light); }
+.match-card.result .loser { color: var(--text-dim); }
+.match-card.result .result-badge {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  min-width: 80px;
+  text-align: center;
+  padding: 4px 10px;
+  border-radius: 3px;
+  background: rgba(201,162,39,0.1);
+  border: 1px solid var(--gold-dark);
+  color: var(--gold);
+}
+.match-day-header {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--red);
+  padding: 4px 0;
+  margin: 16px 0 8px;
+  border-bottom: 1px solid rgba(204,0,0,0.2);
+}
+
+/* ======= BUTTONS ======= */
+.btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  padding: 10px 22px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-gold {
+  background: var(--gold);
+  color: #000;
+}
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 4px 15px rgba(201,162,39,0.4); }
+.btn-gold:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-red {
+  background: var(--red);
+  color: white;
+}
+.btn-red:hover { background: var(--red-bright); }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-white);
+}
+.btn-outline:hover { border-color: var(--gold); }
+.btn-sm { font-size: 0.8rem; padding: 6px 14px; }
+.btn-lg { font-size: 1.1rem; padding: 14px 32px; }
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+  align-items: center;
+}
+
+/* ======= DRAFT ======= */
+#draft-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.draft-pools {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+@media (max-width: 600px) { .draft-pools { grid-template-columns: 1fr; } }
+.draft-pool {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+.draft-pool h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-gold);
+}
+.draft-pool.gold-pool h3 { color: var(--gold); }
+.draft-pool.silver-pool h3 { color: var(--silver); }
+.draft-pool.purple-pool h3 { color: #c39bd3; }
+.draft-wrestler-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-dark) transparent;
+}
+.draft-wrestler-item {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  padding: 5px 8px;
+  border-radius: 3px;
+  background: var(--bg-card2);
+  animation: slideIn 0.3s ease;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.draft-current-card {
+  background: linear-gradient(135deg, var(--bg-card2), var(--bg-card));
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 28px 36px;
+  text-align: center;
+  min-width: 280px;
+  box-shadow: 0 0 30px rgba(201,162,39,0.2);
+}
+.draft-current-card .draft-queue-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+.draft-current-card .draft-wrestler-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  color: var(--gold-light);
+  text-shadow: 0 0 20px rgba(201,162,39,0.4);
+  margin-bottom: 4px;
+  letter-spacing: 0.04em;
+}
+.draft-current-card .draft-gender-badge {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+.draft-current-card .draft-result {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 8px;
+  padding: 6px 14px;
+  border-radius: 4px;
+}
+
+.draft-progress {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.draft-complete-box {
+  text-align: center;
+  padding: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 10px;
+  width: 100%;
+}
+.draft-complete-box h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+
+/* ======= ROSTER ======= */
+.roster-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.roster-filter-btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.roster-filter-btn:hover, .roster-filter-btn.active {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  background: rgba(201,162,39,0.08);
+}
+.roster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+.roster-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+.roster-card:hover { border-color: var(--gold-dark); }
+.roster-card-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.roster-card-avatar.male { background: rgba(201,162,39,0.15); color: var(--gold); border: 1px solid var(--gold-dark); }
+.roster-card-avatar.female { background: rgba(155,89,182,0.15); color: #c39bd3; border: 1px solid rgba(155,89,182,0.3); }
+.roster-card-info { flex: 1; min-width: 0; }
+.roster-card-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.roster-card-league {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ======= STORICO ======= */
+.albo-oro-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.albo-oro-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+.champion-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.95rem;
+}
+.champion-entry:last-child { border-bottom: none; }
+.champion-entry .season-num { color: var(--text-muted); min-width: 90px; }
+.champion-entry .champ-name { font-weight: 700; flex: 1; }
+.mega-table-wrapper {
+  overflow-x: auto;
+  margin-top: 16px;
+}
+.mega-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+}
+.mega-table th {
+  background: var(--bg-card2);
+  color: var(--gold);
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+.mega-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.mega-table tr:hover td { background: rgba(255,255,255,0.02); }
+.mega-table .rank { color: var(--text-muted); font-family: 'Bebas Neue', sans-serif; }
+.mega-table .pts-mega { color: var(--gold-light); font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; }
+
+/* ======= CUP BRACKET ======= */
+.cup-bracket {
+  overflow-x: auto;
+  padding: 16px 0;
+}
+.bracket-rounds {
+  display: flex;
+  gap: 30px;
+  min-width: max-content;
+}
+.bracket-round {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.bracket-round-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-align: center;
+}
+.bracket-match {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 8px 12px;
+  min-width: 160px;
+  margin-bottom: 12px;
+}
+.bracket-match .bm-wrestler {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  padding: 3px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+.bracket-match .bm-wrestler:last-child { border-bottom: none; }
+.bracket-match .bm-wrestler.winner { color: var(--gold-light); font-weight: 700; }
+.bracket-match .bm-wrestler.loser { color: var(--text-dim); text-decoration: line-through; }
+.bracket-match .bm-wrestler.tbd { color: var(--text-dim); font-style: italic; }
+
+/* ======= CHAMPIONS GROUP STAGE ======= */
+.groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.group-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.group-card-header {
+  background: rgba(0,102,204,0.15);
+  border-bottom: 1px solid rgba(0,102,204,0.2);
+  padding: 8px 12px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: #64b5f6;
+  letter-spacing: 0.08em;
+}
+.group-member {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--border);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+}
+.group-member:last-child { border-bottom: none; }
+.group-member .gm-pos { color: var(--text-dim); min-width: 20px; }
+.group-member .gm-name { flex: 1; }
+.group-member .gm-gender { font-size: 0.75rem; color: var(--text-dim); }
+.group-member .gm-pts { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: var(--gold-light); }
+.group-member.qualified { background: rgba(39,174,96,0.06); }
+.group-member.qualified .gm-name { color: var(--green); }
+
+/* ======= MODAL ======= */
+#modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+#modal-overlay.hidden { display: none; }
+#modal-box {
+  background: var(--bg-dark);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 40px rgba(201,162,39,0.2);
+  animation: modalIn 0.2s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+#modal-content h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+#modal-content p { color: var(--text-muted); margin-bottom: 16px; line-height: 1.5; }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 16px; }
+
+/* ======= SPIN WHEEL ======= */
+.spin-wheel-container {
+  text-align: center;
+  padding: 20px 0;
+}
+.spin-result {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: var(--gold-light);
+  text-shadow: 0 0 20px rgba(201,162,39,0.5);
+  animation: spinPop 0.4s ease;
+}
+@keyframes spinPop {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ======= TOAST ======= */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--bg-card2);
+  border: 1px solid var(--gold);
+  color: var(--text-white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  padding: 10px 18px;
+  border-radius: 5px;
+  z-index: 2000;
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  max-width: 300px;
+}
+#toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ======= MISC HELPERS ======= */
+.info-box {
+  background: rgba(201,162,39,0.06);
+  border: 1px solid var(--border-gold);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.info-box strong { color: var(--gold-light); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.badge-gold { background: rgba(201,162,39,0.2); color: var(--gold-light); border: 1px solid var(--gold-dark); }
+.badge-red { background: rgba(204,0,0,0.15); color: #ff6666; border: 1px solid rgba(204,0,0,0.3); }
+.badge-silver { background: rgba(170,170,170,0.15); color: var(--silver); border: 1px solid rgba(170,170,170,0.3); }
+.badge-green { background: rgba(39,174,96,0.15); color: #7dce9f; border: 1px solid rgba(39,174,96,0.3); }
+.badge-purple { background: rgba(155,89,182,0.15); color: #c39bd3; border: 1px solid rgba(155,89,182,0.3); }
+.badge-blue { background: rgba(0,102,204,0.15); color: #64b5f6; border: 1px solid rgba(0,102,204,0.3); }
+
+.text-gold { color: var(--gold-light); }
+.text-muted { color: var(--text-muted); }
+.text-red { color: var(--red-bright); }
+.text-green { color: var(--green); }
+.text-silver { color: var(--silver); }
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-row .stat-label { color: var(--text-muted); }
+.stat-row .stat-val { font-weight: 700; }
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-dim);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+.empty-state .big-icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+
+/* ======= WRESTLER EDIT MODAL ======= */
+.edit-form { display: flex; flex-direction: column; gap: 12px; }
+.edit-form label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2px; display: block; }
+.edit-form input, .edit-form select {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.edit-form input:focus, .edit-form select:focus { border-color: var(--gold); }
+
+/* ======= SEASON END BANNER ======= */
+.season-end-banner {
+  background: linear-gradient(135deg, rgba(201,162,39,0.15), rgba(204,0,0,0.1));
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  margin: 20px 0;
+}
+.season-end-banner h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: var(--gold-light);
+  text-shadow: 0 0 20px rgba(201,162,39,0.5);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+.season-end-banner .champions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 16px 0;
+}
+.champion-tag {
+  background: var(--bg-card2);
+  border: 1px solid var(--gold-dark);
+  border-radius: 6px;
+  padding: 10px 16px;
+  text-align: center;
+}
+.champion-tag .title-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+.champion-tag .title-holder {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  color: var(--gold-light);
+}
+
+/* Ruota del sorteggio */
+.wheel-candidates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+  justify-content: center;
+}
+.wheel-candidate {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 5px 12px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  animation: wheelSpin 0.1s ease;
+}
+.wheel-candidate.spinning { border-color: var(--gold); color: var(--gold-light); }
+
+/* Responsive */
+@media (max-width: 700px) {
+  .logo-text h1 { font-size: 1.3rem; }
+  .tab-btn { padding: 8px 10px; font-size: 0.72rem; }
+  .competition-header h2 { font-size: 1.3rem; }
+  .draft-current-card { min-width: 220px; padding: 20px; }
+  .draft-current-card .draft-wrestler-name { font-size: 1.7rem; }
+}
+
+.hidden { display: none !important; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
